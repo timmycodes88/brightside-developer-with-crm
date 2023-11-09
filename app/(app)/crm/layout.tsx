@@ -32,7 +32,7 @@ const LINKS = [
   },
 ]
 
-export default function layout({ children }: { children: React.ReactNode }) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
   const { user, signOut } = useUserStore()
   if (user && !user.is_admin) return <div>Not Authorized</div>
