@@ -64,7 +64,7 @@ export default function Onboard({ firstName }: any) {
           </li>
         </ul>
 
-        <h5>Event Details: </h5>
+        <h4>Event Details: </h4>
         <ul>
           <li>Date: [Event Date]</li>
           <li>Time: [Event Time]</li>
@@ -79,6 +79,7 @@ export default function Onboard({ firstName }: any) {
           Join us for an unforgettable experience that could transform the way
           you perceive and navigate the metaverse. Your journey into this new
           frontier begins with LinkUP.
+          <br />
           <br />
           Thank you for your enthusiasm and anticipation. We look forward to
           connecting with you soon!
