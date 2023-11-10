@@ -12,7 +12,6 @@ export default function layout({ children }: { children: React.ReactNode }) {
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((event, session) => {
-      console.log(session)
       if (session?.user) {
         supabase
           .from("Account")
@@ -24,7 +23,7 @@ export default function layout({ children }: { children: React.ReactNode }) {
             setUser(data)
             setLoading(false)
           })
-      }
+      } else setLoading(false)
     })
     return () => subscription.unsubscribe()
   }, [])

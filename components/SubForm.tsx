@@ -16,10 +16,14 @@ import { Input } from "@/components/ui/input"
 import { useRouter } from "next/navigation"
 import { isEmail } from "@/lib/utils"
 import { Loader2 } from "lucide-react"
+import { sendEmails } from "@/lib/actions/resend.action"
+import Onboard from "@/emails/Onboard"
+import supabase from "@/lib/supabase"
 
 export default function SubForm({
   buttonText = "Join Now",
   type = "default",
+  page,
   pageId,
 }: any) {
   const [email, setEmail] = useState("")
@@ -37,6 +41,11 @@ export default function SubForm({
     setLoading(true)
 
     try {
+      await sendEmails([email], { firstName })
+      const { data, error } = await supabase
+        .from("Page")
+        .update({ subscriptions: page.subscriptions + 1 })
+        .eq("id", pageId)
       toast.success("Thank you for signing up!")
       router.push("/link-up-conference/success")
     } catch (error) {

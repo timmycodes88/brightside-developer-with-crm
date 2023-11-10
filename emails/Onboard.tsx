@@ -10,11 +10,80 @@ export default function Onboard({ firstName }: any) {
   return (
     <Html>
       <Head></Head>
-      <Preview>Why {firstName} should attend!!</Preview>
+      <Preview>
+        Unlock the Power of the Metaverse with LinkUP - Join Us for an Exclusive
+        Event!
+      </Preview>
       <Tailwind>
         <Img src="https://i.ibb.co/X3n0Xmj/logo.png" alt="" />
-        <p className="text-2xl">Hello {firstName}, so happy this worked!</p>
-        <p className="text-lg">Woohoo</p>
+        <p className="text-2xl">Hello {firstName}, </p>
+        <p className="text-lg">
+          Are you ready to embark on a journey that will redefine success and
+          abundance in both business and life? Your decision to sign up for our
+          upcoming conference is your ticket to discovering the limitless
+          possibilities of the metaverse, and we can't wait to share the
+          exciting details with you.
+        </p>
+        <ul>
+          <li>
+            <span className="font-bold">
+              🌐 LinkUP - The Bridge into the Metaverse
+            </span>
+            <br />
+            In this exclusive presentation, we will delve into the revolutionary
+            concepts of the metaverse, NFTs, and the groundbreaking LinkUP app.
+            Here's a sneak peek at what awaits you:
+          </li>
+          <li>
+            <span className="font-bold">
+              ✨ Empowering Your Path to Success:
+            </span>
+            <br />
+            Uncover the secrets to creating unprecedented success and abundance
+            in both your business and personal life within the metaverse.
+          </li>
+
+          <li>
+            <span className="font-bold">
+              🚀 The Power of NFTs - Utility and Community:
+            </span>
+            <br />
+            Explore how NFTs transcend traditional boundaries, unlocking
+            unparalleled utility and fostering thriving communities within the
+            metaverse.
+          </li>
+          <li>
+            <span className="font-bold">
+              📱 LinkUP App - Your Gateway to a Connected Metaverse:
+            </span>
+            <br />
+            Immerse yourself in the future of social media, messaging, and
+            community building. Discover how LinkUP seamlessly integrates with
+            the metaverse, providing a unique NFT marketplace and minting
+            platform for real-world and virtual connections.
+          </li>
+        </ul>
+
+        <h5>Event Details: </h5>
+        <ul>
+          <li>Date: [Event Date]</li>
+          <li>Time: [Event Time]</li>
+          <li>Location: [Zoom Link]</li>
+          <li>Spaces are limited, so be sure to reserve your spot now!</li>
+        </ul>
+        <p>
+          Join us for an unforgettable experience that could transform the way
+          you perceive and navigate the metaverse. Your journey into this new
+          frontier begins with LinkUP.
+          <br />
+          Thank you for your enthusiasm and anticipation. We look forward to
+          connecting with you soon!
+          <br />
+          <br />
+          Best Regards,
+          <br />
+          Tim Van Lerberg <br /> LinkUP by BrightSide Developer
+        </p>
       </Tailwind>
     </Html>
   )

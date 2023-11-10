@@ -4,6 +4,9 @@ import TypewriterComponent from "typewriter-effect"
 import LinkParticles from "@/components/LinkParticles"
 import { ModeToggle } from "@/components/ui/mode-toggle"
 import SubForm from "@/components/SubForm"
+import ViewPage from "@/components/ViewPage"
+import { useEffect, useState } from "react"
+import supabase from "@/lib/supabase"
 // import ViewPage from "@/components/ViewPage"
 
 const partners = [
@@ -21,11 +24,27 @@ const partners = [
   },
 ]
 
-const pageId = "link-up-conference-1"
+const pageId = "linkup-conference-1"
 export default function page() {
+  const [page, setPage] = useState(null)
+
+  useEffect(() => {
+    supabase
+      .from("Page")
+      .select("*")
+      .eq("id", pageId)
+      .single()
+      .then(({ data, error }) => {
+        if (!data) console.log("Page not found", error)
+        setPage(data)
+      })
+  }, [])
+
+  console.log(page)
+
   return (
     <>
-      {/* <ViewPage pageId={pageId} /> */}
+      {page && <ViewPage pageId={pageId} page={page} />}
 
       <nav className="p-4 sticky top-0 shadow-md bg-secondary/20 backdrop-blur flex items-center justify-between">
         <div className="flex gap-5 items-center">
@@ -40,7 +59,7 @@ export default function page() {
         </div>
       </nav>
       <div className="flex flex-col items-center justify-center min-h-screen">
-        <SubForm pageId={pageId} buttonText="CTA" />
+        {page && <SubForm pageId={pageId} buttonText="CTA" page={page} />}
       </div>
       <LinkParticles />
     </>

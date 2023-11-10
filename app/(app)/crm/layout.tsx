@@ -19,8 +19,8 @@ const LINKS = [
     href: "/crm/contacts",
   },
   {
-    name: "Automation",
-    href: "/crm/automations",
+    name: "Analytics",
+    href: "/crm/analytics",
   },
   {
     name: "Templates",
