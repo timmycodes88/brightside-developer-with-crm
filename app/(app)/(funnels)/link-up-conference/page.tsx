@@ -73,8 +73,8 @@ export default function page() {
         </div>
         <div className="flex flex-col gap-4 w-[40%] p-4 bg-white shadow-lg">
           <p className="text-red-600 font-bold text-lg">
-            Are you interested in NFTs or the meta-verse or have you ever wanted
-            to develop your own community to share and grow in your passions?
+            Have you ever heard of NFTs or the Metaverse or have you ever wanted
+            to create your own community to share and grow in your passions?
           </p>
           <p className="text-gray-900 text-lg font-bold">
             Or even if you don't know anything about it, but once to become

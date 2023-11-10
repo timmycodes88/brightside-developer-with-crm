@@ -17,7 +17,6 @@ import { useRouter } from "next/navigation"
 import { isEmail } from "@/lib/utils"
 import { Loader2 } from "lucide-react"
 import { sendEmails } from "@/lib/actions/resend.action"
-import Onboard from "@/emails/Onboard"
 import supabase from "@/lib/supabase"
 
 export default function SubForm({
