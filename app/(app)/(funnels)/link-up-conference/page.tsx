@@ -43,9 +43,8 @@ export default function page() {
   console.log(page)
 
   return (
-    <>
+    <div className="h-screen w-screen bg-gray-100 overflow-y-auto">
       {page && <ViewPage pageId={pageId} page={page} />}
-
       <nav className="p-4 sticky top-0 shadow-md bg-secondary/20 backdrop-blur flex items-center justify-between">
         <div className="flex gap-5 items-center">
           <div className="relative w-12 h-8 sm:w-[4.5rem] sm:h-10">
@@ -54,14 +53,68 @@ export default function page() {
           <h1 className="text-2xl font-bold">BrightSide Developer</h1>
         </div>
         <div className="flex items-center gap-x-4">
-          <ModeToggle />
           <SubForm pageId={pageId} type="outline" buttonText="Get Started" />
         </div>
       </nav>
-      <div className="flex flex-col items-center justify-center min-h-screen">
-        {page && <SubForm pageId={pageId} buttonText="CTA" page={page} />}
+      <h2 className="mt-16 text-6xl font-bold text-gray-900 max-w-4xl mx-auto text-center uppercase">
+        Be the first to enter the <span className="underline">Metaverse</span>
+      </h2>
+      <h2 className="mb-16 text-6xl font-bold text-red-600 max-w-4xl mx-auto text-center uppercase">
+        and make bank doing it
+      </h2>
+      <div className="flex max-w-7xl mx-auto justify-around mb-10">
+        <div className="w-[40%] relative border-[10px] border-white shadow-lg">
+          <Image
+            src={"https://picsum.photos/200"}
+            fill
+            alt="NFT"
+            className=""
+          />
+        </div>
+        <div className="flex flex-col gap-4 w-[40%] p-4 bg-white shadow-lg">
+          <p className="text-red-600 font-bold text-lg">
+            Are you interested in NFTs or the meta-verse or have you ever wanted
+            to develop your own community to share and grow in your passions?
+          </p>
+          <p className="text-gray-900 text-lg font-bold">
+            Or even if you don't know anything about it, but once to become
+            educated in the future...
+          </p>
+          <p className="text-gray-900 text-lg">
+            If you answered, yes, to any of these questions, this conferences
+            for you. We are delving deep into the technology that is already
+            here and rolling out in the coming years! And you can be on of the
+            first to leverage this knowledge and create an abundance in the
+            meta-verse. All you have to do is click here for your free ticket
+            and join us [date] to get in on this life-changing opportunity.
+          </p>
+          {page && (
+            <SubForm
+              pageId={pageId}
+              buttonText="Register your FREE space NOW!"
+              page={page}
+            />
+          )}
+        </div>
       </div>
+      <div className="bg-red-500">
+        <ul>
+          <li>
+            How to leverage NFT's score, massive abundance, and develop a
+            community around your passion
+          </li>
+          <li>
+            How to bring your community into the meta-verse to expand your
+            business and potential
+          </li>
+          <li>
+            How you can take action right now, to invest in the future of
+            technology, and the first to make a killing in the digital era
+          </li>
+        </ul>
+      </div>
+      <div className="flex flex-col items-center justify-center min-h-screen"></div>
       <LinkParticles />
-    </>
+    </div>
   )
 }

@@ -60,7 +60,10 @@ export default function SubForm({
     <>
       <Dialog>
         <DialogTrigger asChild>
-          <Button variant={type} className="rounded-full">
+          <Button
+            variant={type}
+            className="rounded-md mx-auto shadow-md bg-red-500 hover:text-white text-white w-fit px-8 py-4 hover:bg-red-600"
+          >
             {buttonText}
           </Button>
         </DialogTrigger>
