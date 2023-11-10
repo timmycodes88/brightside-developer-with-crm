@@ -71,6 +71,10 @@ export default function Onboard({ firstName }: any) {
           <li>Location: [Zoom Link]</li>
           <li>Spaces are limited, so be sure to reserve your spot now!</li>
         </ul>
+        <button className="bg-blue-600 mx-auto w-fit text-white text-xl font-bold rounded-2xl px-6 py-2">
+          Join Call
+        </button>
+        <p className="text-center">⬆️ Join 15 minutes early! ⬆️</p>
         <p>
           Join us for an unforgettable experience that could transform the way
           you perceive and navigate the metaverse. Your journey into this new
@@ -81,6 +85,7 @@ export default function Onboard({ firstName }: any) {
           <br />
           <br />
           Best Regards,
+          <br />
           <br />
           Tim Van Lerberg <br /> LinkUP by BrightSide Developer
         </p>
