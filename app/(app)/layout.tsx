@@ -5,7 +5,7 @@ import supabase from "@/lib/supabase"
 import { Loader2 } from "lucide-react"
 import { use, useEffect, useState } from "react"
 
-export default function layout({ children }: { children: React.ReactNode }) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true)
   const { setUser } = useUserStore()
   useEffect(() => {
