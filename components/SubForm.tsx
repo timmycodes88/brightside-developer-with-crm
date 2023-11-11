@@ -14,7 +14,7 @@ import toast from "react-hot-toast"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { useRouter } from "next/navigation"
-import { isEmail } from "@/lib/utils"
+import { cn, isEmail } from "@/lib/utils"
 import { Loader2 } from "lucide-react"
 import { sendEmails } from "@/lib/actions/resend.action"
 import supabase from "@/lib/supabase"
@@ -24,6 +24,7 @@ export default function SubForm({
   type = "default",
   page,
   pageId,
+  large,
 }: any) {
   const [email, setEmail] = useState("")
   const [firstName, setFirstName] = useState("")
@@ -56,69 +57,50 @@ export default function SubForm({
   }
 
   return (
-    <>
-      <Dialog>
-        <DialogTrigger asChild>
-          <Button
-            variant={type}
-            className="rounded-md mx-auto shadow-md bg-red-500 hover:text-white text-white w-fit px-8 py-4 hover:bg-red-600"
-          >
-            {buttonText}
-          </Button>
-        </DialogTrigger>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Enter the Metaverse - Online Event Ticket</DialogTitle>
-            <DialogDescription>
-              This is a once in a life time opportunity to accelerate your
-              business into the technologies of the future!
-            </DialogDescription>
-          </DialogHeader>
-          <DialogFooter>
-            <div className="flex flex-col gap-4 w-full">
-              <div className="flex flex-col gap-1">
-                <label htmlFor="fullname">First Name</label>
-                <Input
-                  type="text"
-                  name="firstname"
-                  value={firstName}
-                  onChange={e => setFirstName(e.target.value)}
-                  placeholder="First Name"
-                />
-              </div>
-              <div className="flex flex-col gap-1">
-                <label htmlFor="fullname">Last Name</label>
-                <Input
-                  type="text"
-                  name="lastname"
-                  value={lastName}
-                  onChange={e => setLastName(e.target.value)}
-                  placeholder="Last Name"
-                />
-              </div>
-              <div className="flex flex-col gap-1">
-                <label htmlFor="email">Email</label>
-                <Input
-                  type="text"
-                  name="email"
-                  value={email}
-                  onChange={e => setEmail(e.target.value)}
-                  placeholder="Email"
-                  required
-                />
-              </div>
+    <div className="flex flex-col gap-4 w-full">
+      <div className="flex flex-col gap-1">
+        <label htmlFor="fullname">First Name</label>
+        <Input
+          type="text"
+          name="firstname"
+          value={firstName}
+          onChange={e => setFirstName(e.target.value)}
+          placeholder="First Name"
+        />
+      </div>
+      <div className="flex flex-col gap-1">
+        <label htmlFor="fullname">Last Name</label>
+        <Input
+          type="text"
+          name="lastname"
+          value={lastName}
+          onChange={e => setLastName(e.target.value)}
+          placeholder="Last Name"
+        />
+      </div>
+      <div className="flex flex-col gap-1">
+        <label htmlFor="email">Email</label>
+        <Input
+          type="text"
+          name="email"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+          placeholder="Email"
+          required
+        />
+      </div>
 
-              <Button disabled={loading} onClick={onSubmit}>
-                {loading ? (
-                  <Loader2 className="w-4 h-4 mx-auto animate-spin" />
-                ) : (
-                  "Submit"
-                )}
-              </Button>
-            </div>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
-    </>
+      <Button
+        disabled={loading}
+        onClick={onSubmit}
+        className="font-bold w-fit ml-auto"
+      >
+        {loading ? (
+          <Loader2 className="w-4 h-4 mx-auto animate-spin" />
+        ) : (
+          "Get Your FREE Ticket NOW!"
+        )}
+      </Button>
+    </div>
   )
 }

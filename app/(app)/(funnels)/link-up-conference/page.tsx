@@ -1,12 +1,12 @@
 "use client"
 import Image from "next/image"
-import TypewriterComponent from "typewriter-effect"
 import LinkParticles from "@/components/LinkParticles"
-import { ModeToggle } from "@/components/ui/mode-toggle"
 import SubForm from "@/components/SubForm"
+import DialogForm from "@/components/DialogForm"
 import ViewPage from "@/components/ViewPage"
 import { useEffect, useState } from "react"
 import supabase from "@/lib/supabase"
+import Link from "next/link"
 // import ViewPage from "@/components/ViewPage"
 
 const partners = [
@@ -45,75 +45,117 @@ export default function page() {
   return (
     <div className="h-screen w-screen bg-gray-100 overflow-y-auto">
       {page && <ViewPage pageId={pageId} page={page} />}
-      <nav className="p-4 sticky top-0 shadow-md bg-secondary/20 backdrop-blur flex items-center justify-between">
+      <nav className="p-4 sticky z-10 top-0 shadow-md bg-secondary/20 backdrop-blur flex items-center justify-between">
         <div className="flex gap-5 items-center">
-          <div className="relative w-12 h-8 sm:w-[4.5rem] sm:h-10">
-            <Image fill alt="Logo" src="/logo.png" />
-          </div>
+          <Link href="/">
+            <div className="relative w-12 h-8 sm:w-[4.5rem] sm:h-10">
+              <Image fill alt="Logo" src="/logo.png" />
+            </div>
+          </Link>
           <h1 className="text-2xl font-bold">BrightSide Developer</h1>
         </div>
         <div className="flex items-center gap-x-4">
-          <SubForm pageId={pageId} type="outline" buttonText="Get Started" />
+          <DialogForm pageId={pageId} type="outline" buttonText="Get Started" />
         </div>
       </nav>
-      <h2 className="mt-16 text-6xl font-bold text-gray-900 max-w-4xl mx-auto text-center uppercase">
+      <h2 className="mt-16 text-4xl md:text-6xl font-bold text-gray-900 max-w-4xl mx-auto text-center uppercase">
         Be the first to enter the <span className="underline">Metaverse</span>
       </h2>
-      <h2 className="mb-16 text-6xl font-bold text-red-600 max-w-4xl mx-auto text-center uppercase">
+      <h2 className="mb-16 text-4xl md:text-6xl font-bold text-red-600 max-w-4xl mx-auto text-center uppercase">
         and make bank doing it
       </h2>
-      <div className="flex max-w-7xl mx-auto justify-around mb-10">
-        <div className="w-[40%] relative border-[10px] border-white shadow-lg">
-          <Image
-            src={"https://picsum.photos/200"}
-            fill
-            alt="NFT"
-            className=""
-          />
+      <div className="flex flex-col items-center md:flex-row gap-10 max-w-7xl mx-auto md:justify-around mb-10">
+        <div className="w-[90%] md:w-[40%] relative border-[10px] aspect-square border-white shadow-lg">
+          <Image src={"/nft.png"} fill alt="NFT" className="" />
         </div>
-        <div className="flex flex-col gap-4 w-[40%] p-4 bg-white shadow-lg">
+        <div className="flex flex-col gap-4 w-[90%] md:w-[40%] p-4 bg-white shadow-lg">
           <p className="text-red-600 font-bold text-lg">
             Have you ever heard of NFTs or the Metaverse or have you ever wanted
-            to create your own community to share and grow in your passions?
+            to create your own community, expand your business, or make a living
+            doing what you love?
           </p>
           <p className="text-gray-900 text-lg font-bold">
-            Or even if you don't know anything about it, but once to become
-            educated in the future...
+            Or even if you don't know anything about it, but want to become
+            educated in the future of technology...
           </p>
           <p className="text-gray-900 text-lg">
             If you answered, yes, to any of these questions, this conferences
             for you. We are delving deep into the technology that is already
-            here and rolling out in the coming years! And you can be on of the
+            here and rolling out in the coming years! And you can be one of the
             first to leverage this knowledge and create an abundance in the
-            meta-verse. All you have to do is click here for your free ticket
-            and join us [date] to get in on this life-changing opportunity.
+            Metaverse. All you have to do is click here for your free ticket and
+            join us [date] to get in on this life-changing opportunity.
           </p>
           {page && (
-            <SubForm
+            <DialogForm
               pageId={pageId}
               buttonText="Register your FREE space NOW!"
               page={page}
+              large
             />
           )}
         </div>
       </div>
-      <div className="bg-red-500">
-        <ul>
-          <li>
-            How to leverage NFT's score, massive abundance, and develop a
-            community around your passion
-          </li>
-          <li>
-            How to bring your community into the meta-verse to expand your
-            business and potential
-          </li>
-          <li>
-            How you can take action right now, to invest in the future of
-            technology, and the first to make a killing in the digital era
-          </li>
-        </ul>
+      <div className="bg-red-500 mb-10 p-10 text-white font-bold">
+        <div className="max-w-7xl mx-auto">
+          <h3 className="text-4xl mb-10 text-center ">
+            What you will learn in this conference:
+          </h3>
+          <div className="w-fit mx-auto">
+            <ul className="list-disc text-2xl max-w-5xl flex flex-col gap-4">
+              <li>
+                ✨ How to leverage NFT's to score, massive abundance, and
+                develop a community around your passion
+              </li>
+              <li>
+                🚀 How to bring your community into the Metaverse to expand your
+                business and potential
+              </li>
+              <li>
+                📱 How you can take action right now, to invest in the future of
+                technology, and the first to make a killing in the digital era
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <div className="flex flex-col items-center justify-center min-h-screen"></div>
+      <div className="flex flex-col items-center md:flex-row gap-10 max-w-7xl mx-auto md:justify-around mb-10">
+        <div className="flex flex-col gap-4 w-[90%] md:w-[40%] p-4 bg-white shadow-lg text-gray-900 text-lg">
+          <h4 className="font-bold text-2xl">About your speaker:</h4>
+          <p className="">
+            I am Tim Van Lerberg, the founder and CEO of Brightside developer. A
+            rising tech company aimed to bring positivity, community and wealth
+            to the world.
+          </p>
+          <p>
+            I got into technology already at the age of 12, some would even call
+            me a prodigy.
+          </p>
+        </div>
+        <div className="w-[90%] md:w-[40%] relative border-[10px] aspect-square border-white shadow-lg">
+          <Image src={"/me.JPG"} fill alt="Me" className="" />
+        </div>
+      </div>
+      <div className="bg-red-500 mb-10 p-10 text-white">
+        <div className="max-w-7xl mx-auto">
+          <h3 className="text-5xl text-white text-center uppercase font-bold mb-10 underline">
+            Join NOW completely FREE
+          </h3>
+          <div className="max-w-lg mx-auto">
+            {page && (
+              <SubForm
+                pageId={pageId}
+                buttonText="Attend the FREE Event"
+                page={page}
+                large
+              />
+            )}
+          </div>
+        </div>
+      </div>
+      <p className="text-gray-500 mb-4 text-center">
+        © 2023 All rights reserved. BrightSideDeveloper.com
+      </p>
       <LinkParticles />
     </div>
   )
