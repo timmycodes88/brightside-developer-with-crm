@@ -3,8 +3,6 @@ import Cors from "micro-cors"
 import { NextRequest, NextResponse } from "next/server"
 import { headers } from "next/headers"
 import { Resend } from "resend"
-import Email1 from "@/emails/Email1"
-import { vip } from "@/lib/actions/subscriptions.actions"
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY_TEST!)
 
