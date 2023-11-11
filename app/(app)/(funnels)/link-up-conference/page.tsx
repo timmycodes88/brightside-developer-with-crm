@@ -1,4 +1,5 @@
 "use client"
+
 import Image from "next/image"
 import LinkParticles from "@/components/LinkParticles"
 import SubForm from "@/components/SubForm"
@@ -7,7 +8,6 @@ import ViewPage from "@/components/ViewPage"
 import { useEffect, useState } from "react"
 import supabase from "@/lib/supabase"
 import Link from "next/link"
-// import ViewPage from "@/components/ViewPage"
 
 const partners = [
   {
@@ -39,8 +39,6 @@ export default function page() {
         setPage(data)
       })
   }, [])
-
-  console.log(page)
 
   return (
     <div className="h-screen w-screen bg-gray-100 overflow-y-auto">
