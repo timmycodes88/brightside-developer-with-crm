@@ -75,7 +75,7 @@ export default function Page() {
             doing what you love?
           </p>
           <p className="text-gray-900 text-lg font-bold">
-            Or even if you dont know anything about it, but want to become
+            Or even if you don't know anything about it, but want to become
             educated in the future of technology...
           </p>
           <p className="text-gray-900 text-lg">
