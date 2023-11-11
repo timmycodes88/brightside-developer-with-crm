@@ -1,15 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
+
 import toast from "react-hot-toast"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -19,13 +11,7 @@ import { Loader2 } from "lucide-react"
 import { sendEmails } from "@/lib/actions/resend.action"
 import supabase from "@/lib/supabase"
 
-export default function SubForm({
-  buttonText = "Join Now",
-  type = "default",
-  page,
-  pageId,
-  large,
-}: any) {
+export default function SubForm({ page, pageId, lightMode, white }: any) {
   const [email, setEmail] = useState("")
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
@@ -59,33 +45,42 @@ export default function SubForm({
   return (
     <div className="flex flex-col gap-4 w-full">
       <div className="flex flex-col gap-1">
-        <label htmlFor="fullname">First Name</label>
+        <label className={lightMode ? "text-white" : ""} htmlFor="fullname">
+          First Name
+        </label>
         <Input
           type="text"
           name="firstname"
           value={firstName}
           onChange={e => setFirstName(e.target.value)}
           placeholder="First Name"
+          className={lightMode ? "bg-white text-gray-900" : ""}
         />
       </div>
       <div className="flex flex-col gap-1">
-        <label htmlFor="fullname">Last Name</label>
+        <label className={lightMode ? "text-white" : ""} htmlFor="fullname">
+          Last Name
+        </label>
         <Input
           type="text"
           name="lastname"
           value={lastName}
           onChange={e => setLastName(e.target.value)}
           placeholder="Last Name"
+          className={lightMode ? "bg-white text-gray-900" : ""}
         />
       </div>
       <div className="flex flex-col gap-1">
-        <label htmlFor="email">Email</label>
+        <label className={lightMode ? "text-white" : ""} htmlFor="email">
+          Email
+        </label>
         <Input
           type="text"
           name="email"
           value={email}
           onChange={e => setEmail(e.target.value)}
           placeholder="Email"
+          className={lightMode ? "bg-white text-gray-900" : ""}
           required
         />
       </div>
@@ -93,7 +88,11 @@ export default function SubForm({
       <Button
         disabled={loading}
         onClick={onSubmit}
-        className="font-bold w-fit ml-auto"
+        className={cn(
+          "font-bold shadow-md text-xl py-10 px-8",
+          white &&
+            "bg-white text-gray-700 hover:text-gray-900 hover:bg-gray-200"
+        )}
       >
         {loading ? (
           <Loader2 className="w-4 h-4 mx-auto animate-spin" />

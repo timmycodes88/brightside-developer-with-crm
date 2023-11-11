@@ -43,14 +43,16 @@ export default function page() {
   return (
     <div className="h-screen w-screen bg-gray-100 overflow-y-auto">
       {page && <ViewPage pageId={pageId} page={page} />}
-      <nav className="p-4 sticky z-10 top-0 shadow-md bg-secondary/20 backdrop-blur flex items-center justify-between">
+      <nav className="p-4 sticky z-10 top-0 shadow-md bg-white/20 backdrop-blur flex items-center justify-between">
         <div className="flex gap-5 items-center">
           <Link href="/">
             <div className="relative w-12 h-8 sm:w-[4.5rem] sm:h-10">
               <Image fill alt="Logo" src="/logo.png" />
             </div>
           </Link>
-          <h1 className="text-2xl font-bold">BrightSide Developer</h1>
+          <h1 className="text-2xl font-bold text-red-500">
+            BrightSide Developer
+          </h1>
         </div>
         <div className="flex items-center gap-x-4">
           <DialogForm pageId={pageId} type="outline" buttonText="Get Started" />
@@ -77,12 +79,12 @@ export default function page() {
             educated in the future of technology...
           </p>
           <p className="text-gray-900 text-lg">
-            If you answered, yes, to any of these questions, this conferences
-            for you. We are delving deep into the technology that is already
-            here and rolling out in the coming years! And you can be one of the
-            first to leverage this knowledge and create an abundance in the
-            Metaverse. All you have to do is click here for your free ticket and
-            join us [date] to get in on this life-changing opportunity.
+            If you answered, yes, to any of these questions, this conference for
+            you. We are delving deep into the technology that is already here
+            and rolling out in the coming years! And you can be one of the first
+            to leverage this knowledge and create an abundance in the Metaverse.
+            All you have to do is click here for your free ticket and join us
+            [date] to get in on this life-changing opportunity.
           </p>
           {page && (
             <DialogForm
@@ -126,7 +128,7 @@ export default function page() {
             to the world.
           </p>
           <p>
-            I got into technology already at the age of 12, some would even call
+            I got into technology already at the age of 14, some would even call
             me a prodigy.
           </p>
         </div>
@@ -136,18 +138,11 @@ export default function page() {
       </div>
       <div className="bg-red-500 mb-10 p-10 text-white">
         <div className="max-w-7xl mx-auto">
-          <h3 className="text-5xl text-white text-center uppercase font-bold mb-10 underline">
-            Join NOW completely FREE
+          <h3 className="text-4xl text-white text-center uppercase font-bold mb-10 underline">
+            Get your ticket NOW completely FREE
           </h3>
           <div className="max-w-lg mx-auto">
-            {page && (
-              <SubForm
-                pageId={pageId}
-                buttonText="Attend the FREE Event"
-                page={page}
-                large
-              />
-            )}
+            {page && <SubForm pageId={pageId} page={page} lightMode white />}
           </div>
         </div>
       </div>
