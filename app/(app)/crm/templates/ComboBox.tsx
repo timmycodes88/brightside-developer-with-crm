@@ -17,7 +17,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
-import { emails } from "./page"
+import { emails } from "./Templates"
 
 export function ComboBox({ template: value, setTemplate: setValue }: any) {
   const [open, setOpen] = React.useState(false)
