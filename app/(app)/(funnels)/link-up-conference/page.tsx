@@ -75,7 +75,7 @@ export default function Page() {
             doing what you love?
           </p>
           <p className="text-gray-900 text-lg font-bold">
-            Or even if you don't know anything about it, but want to become
+            Or even if you dont know anything about it, but want to become
             educated in the future of technology...
           </p>
           <p className="text-gray-900 text-lg">
@@ -104,8 +104,8 @@ export default function Page() {
           <div className="w-fit mx-auto">
             <ul className="list-disc text-2xl max-w-5xl flex flex-col gap-4">
               <li>
-                ✨ How to leverage NFT's to score, massive abundance, and
-                develop a community around your passion
+                ✨ How to leverage NFTs to score, massive abundance, and develop
+                a community around your passion
               </li>
               <li>
                 🚀 How to bring your community into the Metaverse to expand your
