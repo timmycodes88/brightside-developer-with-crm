@@ -25,7 +25,7 @@ const partners = [
 ]
 
 const pageId = "linkup-conference-1"
-export default function page() {
+export default function Page() {
   const [page, setPage] = useState(null)
 
   useEffect(() => {
