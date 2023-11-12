@@ -29,9 +29,47 @@ export default function SubForm({ page, pageId, lightMode, white }: any) {
     try {
       await sendEmails([email], { firstName })
       const { data, error } = await supabase
-        .from("Page")
-        .update({ subscriptions: page.subscriptions + 1 })
-        .eq("id", pageId)
+        .from("Subscriber")
+        .select("*")
+        .eq("email", email)
+
+      if (data?.length) {
+        const user = data[0]
+        const tags = user.tags.includes(
+          "link-up-conference-1 - 2023 Registerant"
+        )
+          ? user.tags
+          : [...user.tags, "link-up-conference-1 - 2023 Registerant"]
+
+        const page_id = user.page_id.includes(pageId)
+          ? user.page_id
+          : [...user.page_id, pageId]
+        const { data: d2, error } = await supabase
+          .from("Subscriber")
+          .update({
+            first_name: firstName,
+            last_name: lastName,
+            tags: tags,
+            page_id,
+          })
+          .eq("email", email)
+      } else {
+        const { data, error } = await supabase.from("Subscriber").insert([
+          {
+            email,
+            first_name: firstName,
+            last_name: lastName,
+            page_id: [pageId],
+            tags: ["link-up-conference-1 - 2023 Registerant"],
+          },
+        ])
+        {
+          const { data, error } = await supabase
+            .from("Page")
+            .update({ subscriptions: page.subscriptions + 1 })
+            .eq("id", pageId)
+        }
+      }
       toast.success("Thank you for signing up!")
       router.push("/link-up-conference/success")
     } catch (error) {

@@ -55,7 +55,12 @@ export default function Page() {
           </h1>
         </div>
         <div className="flex items-center gap-x-4">
-          <DialogForm pageId={pageId} type="outline" buttonText="Get Started" />
+          <DialogForm
+            page={page}
+            pageId={pageId}
+            type="outline"
+            buttonText="Get Started"
+          />
         </div>
       </nav>
       <h2 className="mt-16 text-4xl md:text-6xl font-bold text-gray-900 max-w-4xl mx-auto text-center uppercase">
@@ -79,12 +84,12 @@ export default function Page() {
             educated in the future of technology...
           </p>
           <p className="text-gray-900 text-lg">
-            If you answered, yes, to any of these questions, this conference for
-            you. We are delving deep into the technology that is already here
-            and rolling out in the coming years! And you can be one of the first
-            to leverage this knowledge and create an abundance in the Metaverse.
-            All you have to do is click here for your free ticket and join us
-            [date] to get in on this life-changing opportunity.
+            If you answered, yes, to any of these questions, this conference is
+            for you. We are delving deep into the technology that is already
+            here and rolling out in the coming years! And you can be one of the
+            first to leverage this knowledge and create an abundance in the
+            Metaverse. All you have to do is click here for your free ticket and
+            join us [date] to get in on this life-changing opportunity.
           </p>
           {page && (
             <DialogForm
@@ -104,16 +109,17 @@ export default function Page() {
           <div className="w-fit mx-auto">
             <ul className="list-disc text-2xl max-w-5xl flex flex-col gap-4">
               <li>
-                ✨ How to leverage NFTs to score, massive abundance, and develop
-                a community around your passion
+                ✨ How to leverage NFTs to create abundance, and develop a
+                community around your passion
               </li>
               <li>
-                🚀 How to bring your community into the Metaverse to expand your
-                business and potential
+                🚀 How to bring your community, business and passion into the
+                Metaverse to expand your business and the potential of your life
               </li>
               <li>
                 📱 How you can take action right now, to invest in the future of
-                technology, and the first to make a killing in the digital era
+                technology, and be the first to make a killing in the digital
+                era
               </li>
             </ul>
           </div>
@@ -125,11 +131,12 @@ export default function Page() {
           <p className="">
             I am Tim Van Lerberg, the founder and CEO of Brightside developer. A
             rising tech company aimed to bring positivity, community and wealth
-            to the world.
+            to the world. Through innovative technology!
           </p>
           <p>
-            I got into technology already at the age of 14, some would even call
-            me a prodigy.
+            I got into technology already at the age of 14 and I have been
+            passionate since! Some would even call me a prodigy. I have been
+            working with some of the biggest companies.
           </p>
         </div>
         <div className="w-[90%] md:w-[40%] relative border-[10px] aspect-square border-white shadow-lg">

@@ -1,5 +1,32 @@
-import React from "react"
+"use client"
+
+import supabase from "@/lib/supabase"
+import { useEffect, useState } from "react"
+import toast from "react-hot-toast"
 
 export default function Contacts() {
-  return <div>Contacts</div>
+  const [users, setUsers] = useState<any>()
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const getUsers = async () => {
+      const { data, error } = await supabase.from("Subscriber").select("*")
+      toast.error(error?.message || "error")
+      setUsers(data)
+      setLoading(false)
+    }
+    getUsers()
+  }, [])
+
+  return (
+    <div>
+      {loading && <div>Loading...</div>}
+      {users &&
+        users.map((user: any) => (
+          <div key={user.email} className="mb-10">
+            {JSON.stringify(user)}
+          </div>
+        ))}
+    </div>
+  )
 }
