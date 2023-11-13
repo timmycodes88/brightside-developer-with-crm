@@ -10,12 +10,16 @@ import { cn, isEmail } from "@/lib/utils"
 import { Loader2 } from "lucide-react"
 import { sendEmails } from "@/lib/actions/resend.action"
 import supabase from "@/lib/supabase"
+import { Templates } from "@/constants/emails"
+import useUserEmail from "@/hooks/useUserEmail"
 
 export default function SubForm({ page, pageId, lightMode, white }: any) {
   const [email, setEmail] = useState("")
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
   const router = useRouter()
+
+  const { setUserEmail } = useUserEmail()
 
   const [loading, setLoading] = useState(false)
 
@@ -27,49 +31,73 @@ export default function SubForm({ page, pageId, lightMode, white }: any) {
     setLoading(true)
 
     try {
-      await sendEmails([email], { firstName })
-      const { data, error } = await supabase
-        .from("Subscriber")
-        .select("*")
-        .eq("email", email)
+      // await sendEmails([email], { firstName }, Templates.Onboard)
+      // const { data, error } = await supabase
+      //   .from("Subscriber")
+      //   .select("*")
+      //   .eq("email", email)
 
-      if (data?.length) {
-        const user = data[0]
-        const tags = user.tags.includes(
-          "link-up-conference-1 - 2023 Registerant"
-        )
-          ? user.tags
-          : [...user.tags, "link-up-conference-1 - 2023 Registerant"]
+      // if (data?.length) {
+      //   const user = data[0]
+      //   const tags = user.tags.includes(
+      //     "link-up-conference-1 - 2023 Registerant"
+      //   )
+      //     ? user.tags
+      //     : [...user.tags, "link-up-conference-1 - 2023 Registerant"]
 
-        const page_id = user.page_id.includes(pageId)
-          ? user.page_id
-          : [...user.page_id, pageId]
-        const { data: d2, error } = await supabase
-          .from("Subscriber")
-          .update({
-            first_name: firstName,
-            last_name: lastName,
-            tags: tags,
-            page_id,
-          })
-          .eq("email", email)
-      } else {
-        const { data, error } = await supabase.from("Subscriber").insert([
-          {
-            email,
-            first_name: firstName,
-            last_name: lastName,
-            page_id: [pageId],
-            tags: ["link-up-conference-1 - 2023 Registerant"],
-          },
-        ])
+      //   const page_id = user.page_id.includes(pageId)
+      //     ? user.page_id
+      //     : [...user.page_id, pageId]
+      //   const { data: d2, error } = await supabase
+      //     .from("Subscriber")
+      //     .update({
+      //       first_name: firstName,
+      //       last_name: lastName,
+      //       tags: tags,
+      //       page_id,
+      //     })
+      //     .eq("email", email)
+      // } else {
+      //   const { data, error } = await supabase.from("Subscriber").insert([
+      //     {
+      //       email,
+      //       first_name: firstName,
+      //       last_name: lastName,
+      //       page_id: [pageId],
+      //       tags: ["link-up-conference-1 - 2023 Registerant"],
+      //     },
+      //   ])
+      //   {
+      //     const { data, error } = await supabase
+      //       .from("Page")
+      //       .update({ subscriptions: page.subscriptions + 1 })
+      //       .eq("id", pageId)
+      //   }
+      // }
+      const formData = new FormData()
+      formData.append("u", "3")
+      formData.append("f", "3")
+      formData.append("s", "")
+      formData.append("c", "0")
+      formData.append("m", "0")
+      formData.append("act", "sub")
+      formData.append("v", "2")
+      formData.append("or", "ee32e7969943fce27eac14e001cc3436")
+      formData.append("firstname", firstName)
+      formData.append("lastname", lastName)
+      formData.append("email", email)
+
+      const response = await fetch(
+        "https://timvanlerberg24746.activehosted.com/proc.php?jsonp=true",
         {
-          const { data, error } = await supabase
-            .from("Page")
-            .update({ subscriptions: page.subscriptions + 1 })
-            .eq("id", pageId)
+          headers: {
+            Accept: "application/json",
+          },
+          body: formData,
+          method: "POST",
         }
-      }
+      )
+      setUserEmail(email)
       toast.success("Thank you for signing up!")
       router.push("/link-up-conference/success")
     } catch (error) {

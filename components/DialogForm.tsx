@@ -10,14 +10,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import toast from "react-hot-toast"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { useRouter } from "next/navigation"
-import { cn, isEmail } from "@/lib/utils"
-import { Loader2 } from "lucide-react"
-import { sendEmails } from "@/lib/actions/resend.action"
-import supabase from "@/lib/supabase"
+import { cn } from "@/lib/utils"
 import SubForm from "./SubForm"
 
 export default function DialogForm({
