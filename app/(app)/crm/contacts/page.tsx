@@ -11,7 +11,7 @@ export default function Contacts() {
   useEffect(() => {
     const getUsers = async () => {
       const { data, error } = await supabase.from("Subscriber").select("*")
-      toast.error(error?.message || "error")
+      if (error) toast.error(error.message)
       setUsers(data)
       setLoading(false)
     }

@@ -70,8 +70,14 @@ export default function Page() {
         and make bank doing it
       </h2>
       <div className="flex flex-col items-center md:flex-row gap-10 max-w-7xl mx-auto md:justify-around mb-10">
-        <div className="w-[90%] md:w-[40%] relative border-[10px] aspect-square border-white shadow-lg">
-          <Image src={"/nft.png"} fill alt="NFT" className="" />
+        <div className="w-[90%] md:w-[50%] aspect-[16/9] relative border-[10px]  border-white shadow-lg">
+          <iframe
+            className="w-full h-full"
+            src="https://www.youtube.com/embed/Y7pqLD8fibY?si=iu-8ryda2r0L-GDn"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          ></iframe>
         </div>
         <div className="flex flex-col gap-4 w-[90%] md:w-[40%] p-4 bg-white shadow-lg">
           <p className="text-red-600 font-bold text-lg">
