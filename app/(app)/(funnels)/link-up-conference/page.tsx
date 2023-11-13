@@ -36,11 +36,11 @@ export default function Page() {
       <nav className="p-4 sticky z-10 top-0 shadow-md bg-white/20 backdrop-blur flex items-center justify-between">
         <div className="flex gap-5 items-center">
           <Link href="/">
-            <div className="relative w-12 h-8 sm:w-[4.5rem] sm:h-10">
+            <div className="relative w-14 h-8 sm:w-[4.5rem] sm:h-10">
               <Image fill alt="Logo" src="/logo.png" />
             </div>
           </Link>
-          <h1 className="text-2xl font-bold text-red-500">
+          <h1 className="text-2xl font-bold text-red-500 hidden md:inline">
             BrightSide Developer
           </h1>
         </div>

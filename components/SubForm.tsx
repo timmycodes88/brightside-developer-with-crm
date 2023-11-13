@@ -75,8 +75,8 @@ export default function SubForm({ page, pageId, lightMode, white }: any) {
     } catch (error) {
       console.log(error)
       toast.error("Something went wrong, please try again later")
+      setLoading(false)
     } finally {
-      setTimeout(() => setLoading(false), 2000)
     }
   }
 

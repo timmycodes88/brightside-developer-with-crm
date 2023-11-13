@@ -23,6 +23,7 @@ import SubForm from "./SubForm"
 export default function DialogForm({
   buttonText = "Join Now",
   type = "default",
+  other,
   page,
   pageId,
   large,
@@ -35,7 +36,8 @@ export default function DialogForm({
             variant={type}
             className={cn(
               "rounded-md mx-auto shadow-md bg-red-500 hover:text-white text-white w-fit px-8 py-4 hover:bg-red-600",
-              large && "text-xl py-10 px-8"
+              large && "text-xl py-10 px-8",
+              other && other
             )}
           >
             {buttonText}
