@@ -64,9 +64,9 @@ export default function Landing() {
         </div>
       </div>
       <div className='px-10 pb-20'>
-        <h2 className='text-center text-4xl font-extrabold mb-10'>
+        {/* <h2 className='text-center text-4xl font-extrabold mb-10'>
           Our Partners
-        </h2>
+        </h2> */}
         <div className='flex items-center justify-center md:justify-around flex-wrap gap-4 '></div>
       </div>
       <div className='px-10 pb-20'>
